@@ -16,13 +16,13 @@ cursor = banco.cursor()
 
 #CREATE
 def create(id,produto,valor,unidade):
-	comando = f'INSERT INTO material(id,nome,valor,unidade) VALUES({id},"{produto}",{valor})'
+	comando = f'INSERT INTO material(id,nome,valor,unidade) VALUES({id},"{produto}","{valor}","{unidade}")'
 	cursor.execute(comando)
 	banco.commit()
 	
 #READ
 def read():
-	comando = 'SHOW TABLE'
+	comando = 'SELECT * FROM material'
 	cursor.execute(comando)
 	resposta = cursor.fetchall()
 	print(resposta)
@@ -37,5 +37,3 @@ def delete(id):
 	comando = f'DELETE FROM material WHERE id= "{id}"'
 	cursor.execute(comando)
 	banco.commit()
-
-read()
