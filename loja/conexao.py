@@ -1,5 +1,4 @@
 
-from gzip import READ
 import mysql.connector
 from mysql.connector import errorcode
 try:
@@ -16,21 +15,20 @@ except mysql.connector.Error as error:
 cursor = banco.cursor()
 
 #CREATE
-def create(id,produto,valor):
-	comando = f'INSERT INTO material(id,nome,valor) VALUES({id},"{produto}",{valor})'
+def create(id,produto,valor,unidade):
+	comando = f'INSERT INTO material(id,nome,valor,unidade) VALUES({id},"{produto}",{valor})'
 	cursor.execute(comando)
 	banco.commit()
 	
 #READ
 def read():
-	comando = 'SELECT * FROM material'
+	comando = 'SHOW TABLE'
 	cursor.execute(comando)
 	resposta = cursor.fetchall()
-	for rep in resposta:
-		print(rep[2])
+	print(resposta)
 #UPDATE
-def update(valor,nome_produto):
-	comando = f'UPDATE material SET valor="{valor}"WHERE nome="{nome_produto}"'
+def update(alterar,id):
+	comando = f'UPDATE material SET id="{alterar}"WHERE id="{id}"'
 	cursor.execute(comando)
 	banco.commit()
 	
@@ -40,5 +38,4 @@ def delete(id):
 	cursor.execute(comando)
 	banco.commit()
 
-delete(225)
 read()

@@ -3,3 +3,20 @@ CREATE -OK
 READ
 UPDATE
 DELETE
+
+
+
+def update(escolha,oquevaiseralterado, ondevai seralterado):
+    if escolha == 1: #cpf
+        comando = f'UPDATE material SET valor="{destino}"WHERE nome="{origem}"'
+        cursor.execute(comando)
+        banco.commit()
+	elif escolha == 2:#nome
+    comando = f'UPDATE material SET nome="{destino}"WHERE nome="{origem}"'
+        cursor.execute(comando)
+        banco.commit()
+    elif escolha == 3:#nascimentoS
+        comando = f'UPDATE material SET nascimento="{destino}"WHERE cpf="{origem}"'
+        cursor.execute(comando)
+        banco.commit()
+
