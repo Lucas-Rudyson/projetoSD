@@ -17,24 +17,28 @@ cursor = banco.cursor()
 
 #CREATE
 def create(id,produto,valor):
-	comando = f'INSERT INTO material(nome,valor) VALUES("{produto}",{valor})'
+	comando = f'INSERT INTO material(id,nome,valor) VALUES({id},"{produto}",{valor})'
 	cursor.execute(comando)
 	banco.commit()
-	return "deu bom"
+	
 #READ
 def read():
 	comando = 'SELECT * FROM material'
 	cursor.execute(comando)
 	resposta = cursor.fetchall()
 	for rep in resposta:
-		print(rep)
-	return 
+		print(rep[2])
 #UPDATE
 def update(valor,nome_produto):
 	comando = f'UPDATE material SET valor="{valor}"WHERE nome="{nome_produto}"'
 	cursor.execute(comando)
 	banco.commit()
-	return "deu bom"
-read()
-update(10,'OSSO 1kg ')
+	
+#DELETE
+def delete(id):
+	comando = f'DELETE FROM material WHERE id= "{id}"'
+	cursor.execute(comando)
+	banco.commit()
+
+delete(225)
 read()
