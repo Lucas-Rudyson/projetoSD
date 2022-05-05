@@ -43,4 +43,4 @@ while(True):
             conexao.update(escolha,alterar)
     elif escolha == 4:
         escolha = input('DIGITE O ID DO PRODUTO')
-        conexao.update()
+        conexao.delete()
