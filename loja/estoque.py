@@ -8,10 +8,10 @@ while(True):
     print('|          4-APAGAR              |')
     print('=-'*17)
     escolha = int(input("QUAL OPERAÇÃO DESEJA FAZER?"))
-    if escolha==1:
+    if escolha==1:#adicionar ou create
         id =      input("| ID DO PRODUTO")
         nome =    input("| NOME DO PRODUTO")
-        valor =   input("| VALOR:")
+        valor   = input("| VALOR:")
         unidade = input('| UNIDADE:')
         conexao.create(id,nome,valor,unidade)
     elif escolha==2:

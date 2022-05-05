@@ -20,3 +20,33 @@ def update(escolha,oquevaiseralterado, ondevai seralterado):
         cursor.execute(comando)
         banco.commit()
 
+
+
+import hospital
+import hospital2
+
+ print('=-=-=-=-=-=-=-ESTOQUE-=-=-=-=-=-=-')
+ print('|          1- consulta           |')
+print('|          2- paciente           |')
+
+
+if escolha == 1:
+    print - CONSULTAS
+    cpf = int(input('qual seu cpf'))
+    medico  = input('qual seu medico:')
+    hora = input('qual seu hora? ')
+    data = input('qual a data?')
+    hospital2.create(cpf,medico, hora, data)
+elif escolha == 2:
+    print - paciente
+    cpf = int(input('qual seu cpf'))
+    medico  = input('qual seu medico:')
+    hora = input('qual seu hora? ')
+    data = input('qual a data?')
+    hospital.create(cpf,medico, hora, data)
+
+
+
+
+
+
