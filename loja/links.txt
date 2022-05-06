@@ -1,0 +1,8 @@
+mysql 
+docker exec -i mysql-container mysql -uroot -ppets < banco/script.sql
+docker run -d --network redeSD -v banco:/var/lib/mysql --rm --name mysql-container mysql-image
+
+
+
+python
+docker run -it -p 8081:3306 --network  redeSD estoque 

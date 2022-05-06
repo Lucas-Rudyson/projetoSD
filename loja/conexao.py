@@ -2,7 +2,7 @@
 import mysql.connector
 from mysql.connector import errorcode
 try:
-	banco = mysql.connector.connect(host='127.0.0.2',port=8081, user='root', password='pets', database='pets')
+	banco = mysql.connector.connect(host='172.20.0.2',port=3306, user='root', password='pets', database='pets')
 	print("Database connection made!")
 except mysql.connector.Error as error:
 	if error.errno == errorcode.ER_BAD_DB_ERROR:
@@ -21,8 +21,8 @@ def create(id,produto,valor,unidade):
 	banco.commit()
 	
 #READ
-def read():
-	comando = 'SELECT * FROM material'
+def read(escolha):
+	comando = f'SELECT * FROM material'
 	cursor.execute(comando)
 	resposta = cursor.fetchall()
 	print(resposta)
@@ -37,3 +37,4 @@ def delete(id):
 	comando = f'DELETE FROM material WHERE id= "{id}"'
 	cursor.execute(comando)
 	banco.commit()
+
