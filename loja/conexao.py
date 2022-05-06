@@ -2,7 +2,7 @@
 import mysql.connector
 from mysql.connector import errorcode
 try:
-	banco = mysql.connector.connect(host='127.0.0.2',port=8081, user='root', password='pets', database='pets')
+	banco = mysql.connector.connect(host='172.20.0.2', user='root', password='pets', database='pets')
 	print("Database connection made!")
 except mysql.connector.Error as error:
 	if error.errno == errorcode.ER_BAD_DB_ERROR:
