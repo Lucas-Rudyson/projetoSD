@@ -1,0 +1,29 @@
+version: '3'
+services:
+  db:
+    image: mysql-local
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: pets
+      MYSQL_DATABASE: pets
+      MYSQL_USER: root
+      MYSQL_PASSWORD: PETS 
+    volumes:
+      - banco:/var/lib/mysql
+    deploy:
+      mode: replicated
+
+    
+    
+  estoque:
+    image: lucasrudyson/python
+    ports:
+      - 8081:3306
+    depends_on:
+    - db
+    
+  
+
+volumes:
+  banco:
+    

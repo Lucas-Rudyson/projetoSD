@@ -1,6 +1,6 @@
 mysql 
 docker exec -i mysql-container mysql -uroot -ppets < banco/script.sql
-docker run -d --network redeSD -v banco:/var/lib/mysql --rm --name mysql-container mysql-image
+docker run -d --network redeSD -v banco:/var/lib/mysql --rm --name mysql-container mysql-local
 
 
 

@@ -1,8 +1,9 @@
 
+from cgi import print_arguments
 import mysql.connector
 from mysql.connector import errorcode
 try:
-	banco = mysql.connector.connect(host='172.20.0.2',port=3306, user='root', password='pets', database='pets')
+	banco = mysql.connector.connect(host='172.20.0.2', user='root', password='pets',database='pets')
 	print("Database connection made!")
 except mysql.connector.Error as error:
 	if error.errno == errorcode.ER_BAD_DB_ERROR:
@@ -21,14 +22,15 @@ def create(id,produto,valor,unidade):
 	banco.commit()
 	
 #READ
-def read(escolha):
+def read():
 	comando = f'SELECT * FROM material'
 	cursor.execute(comando)
 	resposta = cursor.fetchall()
-	print(resposta)
+	for resp in resposta:
+		print(resp)
 #UPDATE
 def update(alterar,id):
-	comando = f'UPDATE material SET id="{alterar}"WHERE id="{id}"'
+	comando = f'UPDATE material SET id="{id}" WHERE id="{alterar}"'
 	cursor.execute(comando)
 	banco.commit()
 	
@@ -37,4 +39,3 @@ def delete(id):
 	comando = f'DELETE FROM material WHERE id= "{id}"'
 	cursor.execute(comando)
 	banco.commit()
-
