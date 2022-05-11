@@ -2,19 +2,17 @@ version: '3.8'
 services:
   db:
     image: mysql
-    container_name: petsbd
+    container_name: bdapp
     ports:
       - "32001:3306"
     environment:
       MYSQL_ROOT_PASSWORD: pets
     
-
-
   estoque:
+    image: lucasrudyson/estoque
     container_name: estoque
     links:
       - "db"
-    build: ./
     ports:
       -  "5001:5000" 
 

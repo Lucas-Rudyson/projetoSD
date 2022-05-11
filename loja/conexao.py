@@ -1,9 +1,9 @@
 
 from telnetlib import DO
 import mysql.connector
-banco = mysql.connector.connect(host='petsbd', user='root', password='pets',port=3306)
+banco = mysql.connector.connect(host='bdapp', user='root', password='pets',port=3306)
 cursor = banco.cursor()
-cursor.execute('CREATE DATABASE pets')
+cursor.execute('CREATE DATABASE IF NOT EXISTS pets')
 cursor.execute('USE pets')
 cursor.execute('CREATE TABLE IF NOT EXISTS material(id VARCHAR(50) NOT NULL, nome VARCHAR(50), valor VARCHAR(50),unidade VARCHAR(50))ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;')
 

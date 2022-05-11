@@ -13,8 +13,8 @@ while(True):
     escolha = int(input("QUAL OPERAÇÃO DESEJA FAZER?"))
     if escolha==1:#adicionar ou create
         conexao.read()
-        id      = input("| ID DO PRODUTO")
-        nome    = input("| NOME DO PRODUTO")
+        id      = input("| ID DO PRODUTO:")
+        nome    = input("| NOME DO PRODUTO:")
         valor   = input("| VALOR:")
         unidade = input('| UNIDADE:')
         conexao.create(id,nome,valor,unidade)
