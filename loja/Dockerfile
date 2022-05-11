@@ -1,5 +1,4 @@
-FROM python:3
-ADD . /app
-RUN pip install mysql-connector-python
-WORKDIR /app
-CMD python estoque.py
+FROM python:3.9
+COPY . .
+RUN pip install mysql-connector-python pandas
+CMD ["python", "estoque.py"]

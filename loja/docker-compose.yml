@@ -1,29 +1,21 @@
-version: '3'
+version: '3.8'
 services:
   db:
-    image: mysql-local
-    command: --default-authentication-plugin=mysql_native_password
+    image: mysql
+    container_name: petsbd
+    ports:
+      - "32001:3306"
     environment:
       MYSQL_ROOT_PASSWORD: pets
-      MYSQL_DATABASE: pets
-      MYSQL_USER: root
-      MYSQL_PASSWORD: PETS 
-    volumes:
-      - banco:/var/lib/mysql
-    deploy:
-      mode: replicated
+    command: docker exec -i petsbd mysql -uroot -ppets < banco/script.sql
 
-    
-    
+
   estoque:
-    image: lucasrudyson/python
+    container_name: myapp
+    links:
+      - "db"
+    build: ./
     ports:
-      - 8081:3306
-    depends_on:
-    - db
-    
-  
+      -  "5001:5000" 
 
-volumes:
-  banco:
-    
+        

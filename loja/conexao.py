@@ -1,19 +1,8 @@
 
-from cgi import print_arguments
 import mysql.connector
-from mysql.connector import errorcode
-try:
-	banco = mysql.connector.connect(host='172.20.0.2', user='root', password='pets',database='pets')
-	print("Database connection made!")
-except mysql.connector.Error as error:
-	if error.errno == errorcode.ER_BAD_DB_ERROR:
-		print("Database doesn't exist")
-	elif error.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-		print("User name or password is wrong")
-	else:
-		print(error)
-
+banco = mysql.connector.connect(host='petsbd', user='root', password='pets',port=3306)
 cursor = banco.cursor()
+cursor.execute('use pets')
 
 #CREATE
 def create(id,produto,valor,unidade):
