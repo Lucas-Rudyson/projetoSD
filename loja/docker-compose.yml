@@ -6,13 +6,15 @@ services:
     ports:
       - "32001:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: pets
+      MYSQL_ROOT_PASSWORD: root
     
+
+
   estoque:
-    image: lucasrudyson/estoque
     container_name: estoque
     links:
       - "db"
+    build: ./
     ports:
       -  "5001:5000" 
 

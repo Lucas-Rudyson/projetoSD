@@ -1,8 +1,18 @@
-mysql 
-docker exec -i mysql-container mysql -uroot -ppets < banco/script.sql
-docker run -d --network redeSD -v banco:/var/lib/mysql --rm --name mysql-container mysql-local
+version: '3.8'
+services:
+  db:
+    image: mysql
+    container_name: bdapp
+    ports:
+      - "32001:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      
+  estoque:
+    container_name: lucasrudyson/estoque
+    links:
+      - "db"
+    ports:
+      -  "5001:5000" 
 
-
-
-python
-docker run -it -p 8081:3306 --network  redeSD estoque 
+        

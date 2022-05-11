@@ -1,7 +1,7 @@
 
 from telnetlib import DO
 import mysql.connector
-banco = mysql.connector.connect(host='bdapp', user='root', password='pets',port=3306)
+banco = mysql.connector.connect(host='bdapp', user='root', password='root',port=3306)
 cursor = banco.cursor()
 cursor.execute('CREATE DATABASE IF NOT EXISTS pets')
 cursor.execute('USE pets')
