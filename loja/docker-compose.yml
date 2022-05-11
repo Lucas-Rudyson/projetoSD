@@ -7,11 +7,11 @@ services:
       - "32001:3306"
     environment:
       MYSQL_ROOT_PASSWORD: pets
-    command: docker exec -i petsbd mysql -uroot -ppets < banco/script.sql
+    
 
 
   estoque:
-    container_name: myapp
+    container_name: estoque
     links:
       - "db"
     build: ./
